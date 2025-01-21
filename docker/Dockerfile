@@ -1,21 +1,10 @@
-# Use the Bitnami Kaniko executor image
-FROM bitnami/kaniko:latest
+# Your app Dockerfile (e.g., for a Python app)
+FROM python:3.8-slim
 
-# Set the environment variables for Docker registry and image
-ENV DOCKER_REGISTRY=quay.io
-ENV DOCKER_IMAGE=opsmxpublic/baseline-issuegen
-ENV IMAGE_TAG=v11
+WORKDIR /app
 
-# Kaniko build context and Dockerfile path (can be mounted)
-ARG CONTEXT_PATH=/mnt/git-repo
-ARG DOCKERFILE_PATH=Dockerfile
+COPY . .
 
-# Use a volume to mount the context and Dockerfile
-VOLUME ["/mnt/git-repo"]
+RUN pip install -r requirements.txt
 
-# Run Kaniko executor with the provided build context and Dockerfile
-CMD ["/kaniko/executor", 
-    "--context=$CONTEXT_PATH", 
-    "--dockerfile=$DOCKERFILE_PATH", 
-    "--destination=$DOCKER_REGISTRY/$DOCKER_IMAGE:$IMAGE_TAG"]
-
+CMD ["python", "app.py"]
