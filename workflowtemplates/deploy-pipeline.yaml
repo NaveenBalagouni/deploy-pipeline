@@ -114,7 +114,7 @@ spec:
             "--dockerfile=/kaniko/Dockerfile",
             "--destination=$(DOCKER_REGISTRY)/$(DOCKER_IMAGE):$(IMAGE_TAG)",  # Ensure proper expansion
             "--cache=false",
-            "--verbosity=debug"   # Increase verbosity for more details
+            # Increase verbosity for more details
           ]
 
     - name: update-values-yaml
