@@ -24,8 +24,6 @@ spec:
         - - name: maven-build
             template: maven-build
 
-        - - name: echo-image-tag-template
-            template: echo-image-tag-template
           
         - - name: kaniko-build-push
             template: kaniko-build-push
@@ -85,25 +83,6 @@ spec:
             echo "POM file found. Running Maven build..."
             mvn clean install
 
-   
-    - name: echo-image-tag-template
-      container:
-        image: "busybox"
-        command: ["/bin/sh", "-c"]
-        args: 
-          - | 
-            mkdir -p /mnt/git-repo/ && \
-            echo "$DOCKER_REGISTRY/$DOCKER_IMAGE:$IMAGE_TAG" > /mnt/git-repo/artifact
-      volumeMounts:
-        - mountPath: /mnt/git-repo
-          name: git-pvc
-      env:
-        - name: DOCKER_REGISTRY
-          value: "quay.io"
-        - name: DOCKER_IMAGE
-          value: "opsmxpublic/baseline-issuegen"
-        - name: IMAGE_TAG
-          value: "v11"
     - name: kaniko-build-push
       container:
         image: "bitnami/kaniko"
@@ -176,9 +155,6 @@ spec:
             # Ensure you're inside a git repository
             cd /mnt/git-repo
 
-            # Configuring git user
-            git config --global user.email "naveen.balagouni@opsmx.io"
-            git config --global user.name "NaveenBalagouni"
 
             # GitHub repository URL with authentication token
             GITHUB_TOKEN="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"
