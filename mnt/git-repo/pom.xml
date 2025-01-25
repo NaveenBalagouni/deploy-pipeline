@@ -5,13 +5,13 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.opsmx</groupId>
-	<artifactId>deploy-pipeline</artifactId>
+	<artifactId>issuegen</artifactId>
 	<version>0.1</version>
 	<packaging>jar</packaging>
 
-	<name>deploy-pipeline/name>
+	<name>issuegen</name>
 	<description>Demo project for Spring Boot Stack Driver Integration</description>
-	<url>https://github.com/NaveenBalagouni/deploy-pipeline.git</url> <!-- Corrected project URL -->
+	<url>https://github.com/opsmx/issuegen</url> <!-- Corrected to GitHub URL -->
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -58,12 +58,14 @@
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok-maven-plugin</artifactId>
-			<version>1.18.20.0</version>
+			<artifactId>lombok</artifactId>
+			<version>1.18.20</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
 
@@ -83,7 +85,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>com.opsmx.issuegen.IssuegenApplication</mainClass> <!-- Add your main class explicitly -->
+					<mainClass>com.opsmx.issuegen.IssuegenApplication</mainClass> <!-- Specify main class -->
 				</configuration>
 			</plugin>
 		</plugins>
