@@ -1,5 +1,5 @@
 # Use the Bitnami Kaniko executor image
-FROM bitnami/kaniko:latest
+FROM gcr.io/kaniko-project/executor:v1.9.0-debug
 
 # Set the environment variables for Docker registry and image
 ENV DOCKER_REGISTRY=quay.io
