@@ -5,13 +5,13 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.opsmx</groupId>
-	<artifactId>issuegen</artifactId>
+	<artifactId>deploy-pipeline</artifactId>
 	<version>0.1</version>
 	<packaging>jar</packaging>
 
-	<name>issuegen</name>
+	<name>deploy-pipeline/name>
 	<description>Demo project for Spring Boot Stack Driver Integration</description>
-	<url>https://github.com/opsmx/issuegen</url> <!-- Corrected project URL -->
+	<url>https://github.com/NaveenBalagouni/deploy-pipeline.git</url> <!-- Corrected project URL -->
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
